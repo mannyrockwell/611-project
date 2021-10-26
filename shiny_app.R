@@ -8,11 +8,12 @@
 #
 
 library(shiny)
-library(dplyr)
 library(tidyr)
 library(highcharter)
 library(dplyr)
 library(shinythemes)
+library(stringr)
+library(lubridate)
 
 pitchfork = read.csv("pitchfork.csv", header = TRUE)
 pitchfork = as_tibble(pitchfork)  
