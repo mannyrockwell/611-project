@@ -1,0 +1,14 @@
+name: pitchfork_app_611
+title: pitchfork_app_611
+username:
+account: emmanuelrockwell
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4986189
+bundleId: 5184836
+url: https://emmanuelrockwell.shinyapps.io/pitchfork_app_611/
+when: 1635386684.69622
+lastSyncTime: 1635386684.69622
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: best_new_music.R|Dockerfile.dockerfile|Makefile.mak|Project Proposal.docx|README.md|unigram_freq.csv

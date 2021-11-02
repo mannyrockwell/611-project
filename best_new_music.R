@@ -4,24 +4,19 @@ library(lubridate)
 library(highcharter)
 library(dplyr)
 
+pitchfork = read.csv("derived_data/pitchfork_clean.csv", header = TRUE)
+pitchfork = as_tibble(pitchfork_clean)
 
-pitchfork = read.csv("pitchfork.csv", header = TRUE)
-pitchfork = as_tibble(pitchfork)
-
-pitchfork <- pitchfork %>% 
-  mutate(simplified_genre = word(genre,1,sep = ",")) %>%
-  mutate(date = mdy(date)) %>% 
-  mutate(after_aquisition = ifelse(date > "2015-10-13", 1, 0))
 
 best_new_music <- pitchfork %>% filter(bnm == 1)
 length(best_new_music)
 
 min(pitchfork$release_year, na.rm = TRUE)
 
-hist <- ggplot(pitchfork, aes(x = score)) + 
+histogram1 <- ggplot(pitchfork, aes(x = score)) + 
   geom_histogram(aes(y = ..density..), color="black", fill="white", binwidth = 0.1) + 
   geom_density(alpha=.2, fill="#FF6666") 
-hist
+histogram1
 
 ggplot(pitchfork, aes(x = score, color = simplified_genre)) + 
   geom_histogram(fill="white", binwidth = 0.1)
@@ -44,6 +39,33 @@ pitchfork_year <- function(inputyear){
 pitchfork_year(c(2015,2019))
 
 
+pitchfork %>% filter(score <= 0.1) %>% select(artist, album, link)
 
+
+lowest_scores <- pitchfork %>% group_by(release_year) %>% mutate(lowest_score = min(score)) %>% 
+  filter(score == lowest_score) %>% filter(release_year >= 1995) %>% arrange(desc(release_year)) %>% select(artist, album, score, date, release_year, link)
+
+lowest_scores <- pitchfork %>% group_by(year(date)) %>% mutate(lowest_score = min(score)) %>% 
+  filter(score == lowest_score) %>% arrange(desc(date)) %>% select(artist, album, score, date, release_year, link)
+
+print(lowest_scores, n=30)
+
+
+if (!dir.exists("figures")){
+  dir.create("figures")
+  png(file="figures/score_distribution",
+      width=600, height=350)
+  histogram1
+  dev.off()
+} else {
+  png(file="figures/score_distribution",
+      width=600, height=350)
+  histogram1
+  dev.off()
+}
+
+
+png(file="histogram",
+    width=600, height=350)
 
 

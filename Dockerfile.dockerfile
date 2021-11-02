@@ -2,7 +2,7 @@ FROM rocker/verse
 LABEL Emmanuel Rockwell <erockwell@unc.edu>
 ARG pwd
 RUN R -e "install.packages(c('tidyverse','plotly','data.table','gbm','caret',\
-'e1071', 'gridExtra', 'reshape', 'plyr', 'shiny'))"
+'e1071', 'gridExtra', 'reshape', 'plyr', 'shiny','stringr', 'lubridate', 'highcharter'))"
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN echo "rstudio:$pwd" | chpasswd
