@@ -5,7 +5,7 @@ library(highcharter)
 library(dplyr)
 
 pitchfork = read.csv("derived_data/pitchfork_clean.csv", header = TRUE)
-pitchfork = as_tibble(pitchfork_clean)
+pitchfork = as_tibble(pitchfork)
 
 
 best_new_music <- pitchfork %>% filter(bnm == 1)
