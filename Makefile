@@ -16,3 +16,9 @@ derived_data/best_new_music.csv: best_new_music.R source_data/pitchfork_clean.cs
 
 figures/score_distribution.png: best_new_music.R derived_data/pitchfork_clean.csv
 	Rscript best_new_music.R
+
+figures/contrarian_index.png: contrarian_index.R derived_data/pitchfork_clean.csv source_data/riaaAlbumCerts_1999-2019.csv
+	Rscript contrarian_index.R
+
+report.pdf: report.tex figures/contrarian_index.png figures/score_distribution.png 
+	pdflatex report.tex
