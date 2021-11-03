@@ -1,27 +1,16 @@
 
 %--------------- Personalize your document here ---------------
 
-\author{Student Name} % Enter your name
-\newcommand{\studentID}{Student ID} % enter your student ID
-\newcommand{\supervisorone}{Supervisor 1} % Enter your supervisor's name
-\newcommand{\supervisortwo}{Supervisor 2}% Leave it empty or enter your second supervisor's name 
-\newcommand{\department}{DEPARTMENT NAME}
-\newcommand{\exam}{PHD COMPREHENSIVE EXAM PART I}
+\author{Emmanuel Rockwell} % Enter your name
+\newcommand{\supervisorone}{Vincent Toups} % Enter your supervisor's name
+\newcommand{\supervisortwo}{}% Leave it empty or enter your second supervisor's name 
+\newcommand{\department}{UNIVERISTY OF NORTH CAROLINA -- CHAPEL HILL\\ Department of Biostatistics}
+\newcommand{\exam}{BIOS 611 FINAL PROJECT}
 
-\title{Title of Document} %Enter the title of your report 
-\date{Month Year} % insert a specific date	
+\title{Pitchfork Analysis} %Enter the title of your report 
+\date{November 2021} % insert a specific date	
 
-%--------------------------------------------------------------
 
-% This document was adapted from the
-% TEMPLATE FOR PHYS250 WORKSHEET created by Alastair McLean
-% URL: https://www.overleaf.com/latex/templates/phys250-worksheet-template/xxftvfhmwqdt
-
-% Jefferson Silveira
-% Email: 19jdls1@queensu.ca
-% Last update: 09-Jun-2021
-% If you have any questions or concerns, do not hesitate to contact me.
-%--------------------------------------------------------------
 
 \documentclass[a4paper,12pt]{article}
 \usepackage[left=30mm,top=30mm,right=30mm,bottom=30mm]{geometry}
@@ -45,14 +34,14 @@
 \usepackage[square,numbers,sort]{natbib}
 \usepackage[ruled,vlined]{algorithm2e}
 \usepackage{listings}
-\usepackage{minted}
+%\usepackage{minted}
 %\usemintedstyle{emacs}
 
-\renewcommand{\listingscaption}{Algorithm}
-\renewcommand{\listoflistingscaption}{List of Algorithms}
+%\renewcommand{\listingscaption}{Algorithm}
+%\renewcommand{\listoflistingscaption}{List of Algorithms}
 
 
-\bibliographystyle{unsrtnat}
+%\bibliographystyle{unsrtnat}
 
 \hypersetup{
 	colorlinks,
@@ -74,7 +63,9 @@
 		%\includegraphics[width=0.35\columnwidth]{queenslogo.pdf}
 		\vskip 0.5cm   
 		\textsc{\large \department}\\
-		\vskip 1.5cm
+		\vskip 1cm
+		\includegraphics[width = 0.4\linewidth]{"unc_seal.png"}
+		\vskip 1cm
 		\rule{\linewidth}{0.2 mm} \\
 		{\large \exam}\\[1 cm]
 		{\huge \bfseries \@title \par}
@@ -84,13 +75,12 @@
 		\begin{minipage}[t]{0.45\textwidth}
 			\begin{flushleft} \large
 				\emph{Author:}\\
-				\@author\\
-				Student ID: \studentID
+				\@author
 			\end{flushleft}
 		\end{minipage}
 		\begin{minipage}[t]{0.45\textwidth}
 			\begin{flushright} \large
-				\ifdefempty{\supervisortwo}{\emph{Supervisor:\\}}{\emph{Supervisors:\\}}
+				\ifdefempty{\supervisortwo}{\emph{Instructor:\\}}{\emph{Instructor:\\}}
 				\supervisorone\\
 				\ifdefempty{\supervisortwo}{}{\supervisortwo\\}
 			\end{flushright}
@@ -114,6 +104,7 @@
 	\maketitle
 	
 	\tableofcontents
+
 	\newpage
 	%\listoffigures
 	%\newpage
@@ -128,10 +119,152 @@
 	\pagenumbering{arabic}% Arabic page numbers (and reset to 1)
 	
 	% This is how you can organize your document
-	\input{sections/introduction}
-	\input{sections/section1}
-	\input{sections/examples}
-	\input{sections/conclusion}
+\section{Introduction}
+Some introductory words about my project.
+
+\section{Score Distributions}
+\includegraphics[width = \linewidth]{"figures/score_distribution.png"}
+\subsection{More Analysis of Distribution of Scores}
+
+
+\section{The Contrarian Index - Pitchfork Scores of Popular Music}
+\includegraphics[width = \linewidth]{"figures/contrarian_index.png"}
+\subsection{Trends Post Conde-Nast Acquisition}
+\subsubsection{Further Analysis}
+
+\section{A Third Analysis: Perhaps Some Natrual Language Processing}
+\subsection{Latent Dirichlet Allocation}
+
+\section{Conclusion}
+%
+%\section{Section 1}
+%\subsection{Subsection 1}
+%\subsubsection{Subsubsection 1}
+%You won't find subsubsubsections but you can also add a paragraph
+%\paragraph{Paragraph} 
+%
+%if you really need another layer.
+%
+%But you can also modify the document if you really need more subsections.
+%
+%\section{Examples} \label{sec:section2}
+%
+%This is how you reference labels. Section \ref{sec:section2} explains how to reference labels. Section \ref{sec:citing} explains how to cite papers.
+%
+%\subsection{Citing}\label{sec:citing}
+%This is one citation \cite{Mabuchi2012}. This is another citation \cite{HAN201687}. You can aggregate citations \cite{Mabuchi2012, HAN201687}.
+%
+%\subsection{Theorem}
+%\begin{theorem} \label{theo:theorem1}
+%	This is one way to define a theorem
+%\end{theorem}
+%
+%You can also reference the Theorem \ref{theo:theorem1}.
+%
+%\subsection{Coloring text for revision}
+%\textcolor{red}{You can color your text in case you want to add comments during the review of your comp I}.
+%
+%\subsection{Adding images}
+%This is how you reference an image Figure \ref{fig:example_1}.
+%
+%\begin{figure}[ht]
+%	\centering
+%%	\includegraphics[width = 0.3\linewidth]{figures/Thesis_Defence.png}
+%	\caption{You can cite the source in the caption \cite{barbour1}.}
+%	\label{fig:example_1}
+%\end{figure}
+%
+%This is how you reference a sub-image Figure \ref{fig:a}.
+%
+%\subsection{Adding equations}
+%
+%Equation \ref{eq:euler} is Euler's favorite equation. Maybe you want to cite as IEEE style? \eqref{eq:euler} shows Euler's favorite equation.
+%
+%\begin{equation}
+%	\label{eq:euler}
+%	e^{i\pi} + 1 = 0
+%\end{equation}
+%
+%\subsection{Adding tables}
+%
+%Table \ref{tab:table1} is a simple table.
+%\begin{table}[H]
+%	\caption{This is a simple table}
+%	\label{tab:table1}
+%	\centering
+%	\begin{tabular}{lccc}
+%		\toprule
+%		Class       &   Feature 1   &   Feature 2   &   Feature 3   \\
+%		\midrule
+%		Class 1     &   a   &   a   &   a   \\
+%		Class 2     &   a   &   a   &   a   \\
+%		\bottomrule
+%	\end{tabular}
+%\end{table}
+%
+%
+%Table \ref{tab:table2} contains more advanced components.
+%\begin{table}[H]
+%	\caption{This is a comprehensive table}
+%	\label{tab:table2}
+%	\centering
+%	\begin{tabular}{lcccc}
+%		\toprule
+%		& \multicolumn{2}{c}{CNN} & \multicolumn{2}{c}{CNN+LSTM} \\
+%		\cmidrule(r){2-3} \cmidrule(r){4-5}
+%		Difficulty     & Model 1 &  Model 2 & Model 1 & Model 2\\
+%		\midrule
+%		Easiest   & \Centerstack{ calm \\ angry \\ neutral}  &   \Centerstack{ angry \\ disgust \\ surprised}   &   \Centerstack{ calm \\ angry \\ neutral} & \Centerstack{ angry \\ fearful \\ calm} \\
+%		\midrule
+%		Hardest & \Centerstack{ sad \\ surprised \\ happy}   & \Centerstack{ neutral \\ sad \\ happy/fearful} & \Centerstack{ sad \\ surprised \\ happy/disgust}   &   \Centerstack{ neutral/sad \\ happy \\ disgust } \\
+%		\bottomrule
+%	\end{tabular}
+%\end{table}
+%
+%
+%\subsection{Lists}
+%This is an unordered list
+%\begin{itemize}
+%	\item Item 1
+%	\item Item 2
+%\end{itemize}
+%
+%This is an ordered nested list
+%\begin{enumerate}
+%	\item Item 1
+%	\begin{enumerate}
+%		\item Item one
+%		\item Item two
+%		\item Item three
+%	\end{enumerate}
+%	\item Item 2
+%\end{enumerate}
+%
+%\subsection{Algorithms}
+%
+%Algorithm \ref{alg:algorithm1} shows how to write pseudocode.
+%
+%\begin{algorithm}
+%	\KwResult{Write here the result }
+%	initialization\;
+%	\While{While condition}{
+%		instructions\;
+%		\eIf{condition}{
+%			instructions1\;
+%			instructions2\;
+%		}{
+%			instructions3\;
+%		}
+%	}
+%	\caption{Example of algorithm}
+%	\label{alg:algorithm1}
+%\end{algorithm}
+%
+%You can also import code, if you really need to show the exact code that you used. For example, Algorithm \ref{listing:research} shows how to do research.
+
+
+
+%	\input{sections/conclusion}
 	
 	
 	
@@ -143,6 +276,13 @@
 	
 	\clearpage % If you want the appendix in a separate page
 	\appendix
-	\input{sections/appendix}
+%	\input{sections/appendix}
+
+\begin{thebibliography}{}
+\bibitem{ref1}
+Rockwell, E. M., \& Rockwell, E. M. (2021). \emph{This is a citiation I made up} (Vol. 4). Prestigious Journal.
+
+
+\end{thebibliography}
 	
 \end{document}

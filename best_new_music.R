@@ -3,6 +3,7 @@ library(stringr)
 library(lubridate)
 library(highcharter)
 library(dplyr)
+library(ggplot2)
 
 pitchfork = read.csv("derived_data/pitchfork_clean.csv", header = TRUE)
 pitchfork = as_tibble(pitchfork)
@@ -53,19 +54,11 @@ print(lowest_scores, n=30)
 
 if (!dir.exists("figures")){
   dir.create("figures")
-  png(file="figures/score_distribution",
-      width=600, height=350)
-  histogram1
-  dev.off()
+  ggsave("figures/score_distribution.png", 
+         width = 5, height = 5, 
+         plot = histogram1)
 } else {
-  png(file="figures/score_distribution",
-      width=600, height=350)
-  histogram1
-  dev.off()
+  ggsave("figures/score_distribution.png", 
+         width = 5, height = 5, 
+         plot = histogram1)
 }
-
-
-png(file="histogram",
-    width=600, height=350)
-
-
