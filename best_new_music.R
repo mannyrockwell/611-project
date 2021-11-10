@@ -52,6 +52,7 @@ lowest_scores <- pitchfork %>% group_by(year(date)) %>% mutate(lowest_score = mi
 print(lowest_scores, n=30)
 
 
+
 if (!dir.exists("figures")){
   dir.create("figures")
   ggsave("figures/score_distribution.png", 

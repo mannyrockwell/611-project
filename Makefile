@@ -2,7 +2,6 @@
 .PHONY: shiny_app
 SHELL: /bin/bash
 
-#This clean action removes any existing datasets, figures or reports generated in this Makefile
 clean:
 	rm -rf derived_data/*
 	rm -rf figures/*
@@ -22,3 +21,11 @@ figures/contrarian_index.png: contrarian_index.R derived_data/pitchfork_clean.cs
 
 report.pdf: report.tex figures/contrarian_index.png figures/score_distribution.png 
 	pdflatex report.tex
+
+report.pdf: /tmp/tinytex_installed
+	R -e "tinytex::pdflatex(\"report.tex\")
+
+tmp/tinytex_installed:
+	rm -f /tmp/tinytex_installed
+	Rscript install_tinytex.R
+	touch /tmp/tinytex_installed 
