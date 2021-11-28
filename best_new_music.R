@@ -4,9 +4,15 @@ library(lubridate)
 library(highcharter)
 library(dplyr)
 library(ggplot2)
+library(grid)
+library(cowplot)
 
 pitchfork = read.csv("derived_data/pitchfork_clean.csv", header = TRUE)
-pitchfork = as_tibble(pitchfork)
+pitchfork = as_tibble(pitchfork) %>% group_by(simplified_genre) %>% 
+  mutate(label = paste0(simplified_genre, "\n", round(mean(score),2)))
+
+pitchfork %>% select(score) %>% summarize(median(score)) 
+pitchfork %>% select(score) %>% summarize(mean(score)) 
 
 
 best_new_music <- pitchfork %>% filter(bnm == 1)
@@ -16,17 +22,38 @@ min(pitchfork$release_year, na.rm = TRUE)
 
 histogram1 <- ggplot(pitchfork, aes(x = score)) + 
   geom_histogram(aes(y = ..density..), color="black", fill="white", binwidth = 0.1) + 
-  geom_density(alpha=.2, fill="#FF6666") 
+  geom_density(alpha=.2, fill="#FF6666") +
+  labs(title = "Pitchfork Score Distribution", x = "Score", y ="Frequency")
 histogram1
+
+histogram2 <- ggplot(pitchfork, aes(x = score, 
+                      fill = factor(ifelse((score =="7.9"|score == "7.1"),"Underindexed", "Other")))) + 
+  geom_histogram(color="black", binwidth = 0.1) +
+  scale_fill_manual(name = "score", values=c("grey80", "red")) +
+  labs(title = "Pitchfork Score Distribution: Underindexed Scores", x = "Score", y ="Frequency")
+histogram2
+
+histogram3 <- ggplot(pitchfork, aes(x = score, 
+                                    fill = factor(ifelse((score =="8"|score == "7"), "Overindexed", "Other")))) + 
+  geom_histogram(color="black", binwidth = 0.1) +
+  scale_fill_manual(name = "score", values=c("grey80", "seagreen")) +
+  labs(title = "Pitchfork Score Distribution: Overindexed Scores", x = "Score", y ="Frequency")
+histogram3
+
+histogram4 <- plot_grid(histogram2, histogram3)
 
 ggplot(pitchfork, aes(x = score, color = simplified_genre)) + 
   geom_histogram(fill="white", binwidth = 0.1)
 
+pitchfork_grouped <- pitchfork %>% group_by(label) %>% summarize(score = mean(score))
 
-ggplot(pitchfork, aes(x = score)) + 
-  geom_histogram(color = "black", fill="white", binwidth = 0.1) + 
+
+histogram5 <- ggplot(pitchfork, aes(x = score)) + 
+  geom_histogram(aes(y = ..density..), color = "black", fill="white", binwidth = 0.1) + 
   geom_vline(aes(xintercept = mean(score)),col='red', linetype = "dashed")+
-  facet_wrap(simplified_genre ~ ., ncol = 2)
+  geom_vline(data = pitchfork_grouped, mapping =aes(xintercept = score),col='blue', linetype = "dashed") +
+  facet_wrap(label ~ ., ncol = 5) +
+  labs(title = "Pitchfork Score Distribution by Genre", x = "Score", y ="Frequency")
 
 hchart(density(pitchfork$score), type = "area", color = "#B71C1C", name = "Score")
 
@@ -56,10 +83,32 @@ print(lowest_scores, n=30)
 if (!dir.exists("figures")){
   dir.create("figures")
   ggsave("figures/score_distribution.png", 
-         width = 5, height = 5, 
+         width = 10, height = 5, 
          plot = histogram1)
 } else {
   ggsave("figures/score_distribution.png", 
-         width = 5, height = 5, 
+         width = 10, height = 5, 
          plot = histogram1)
+}
+
+if (!dir.exists("figures")){
+  dir.create("figures")
+  ggsave("figures/underoverindexing.png", 
+         width = 20, height = 5, 
+         plot = histogram4)
+} else {
+  ggsave("figures/underoverindexing.png", 
+         width = 20, height = 5, 
+         plot = histogram4)
+}
+
+if (!dir.exists("figures")){
+  dir.create("figures")
+  ggsave("figures/score_dist_by_genre.png", 
+         width = 10, height = 5, 
+         plot = histogram5)
+} else {
+  ggsave("figures/score_dist_by_genre.png", 
+         width = 10, height = 5, 
+         plot = histogram5)
 }

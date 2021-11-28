@@ -120,19 +120,34 @@
 	
 	% This is how you can organize your document
 \section{Introduction}
-Some introductory words about my project.
+Founded in 1995, Pitchfork is an online music \& culture website that also organized the annual Pitchfork Music Festival in Chicago, IL. However, Pitchfork is mainly known for it's album reviews. Rather than assigning some amount of stars, thumbs-up, or tomatoes, Pitchfork aims to pursue a further degree of objective precision to its reviews -- assigning to each album a score on a 101-point scale between 0.0 and 10.0. 
+
+Pitchfork's brand has evolved over the years. For the first 20 years or so of its existence, Pitchfork was mostly a mainstay of more alternative and underground music scenes, developing a reputation a reputation for it's somewhat contrarian opinions regarding popular music. However, in 2015 Pitchfork was sold to the media conglomerate Conde Nast and with the acquisition morphed into a mouthpiece for the music industries top record labels. 
+
+To analyze Pitchfork's reviews, I used a dataset from components.one that scraped every pitchfork review between 1999 and January, 2019. 
+
+
 
 \section{Score Distributions}
-\includegraphics[width = \linewidth]{"figures/score_distribution.png"}
-\subsection{More Analysis of Distribution of Scores}
+Perhaps the most interesting aspect of Pitchfork's reviews is the 101-point scale along which each album is evaluated. While this scale attempts to achieve a semblance of objectivity in reviews, very little is known about the methodology used when scores are assigned. Can we expect the average score to be a 5.0? What distribution of scores should we expect? How rare are very high and very low scores? Pitchfork doesn't disclose any of this information, so we're left to analyze the data ourselves to understand what the distribution of scores look like. Figure 1 shows the general distribution of the scores.
 
+\includegraphics[width = \linewidth]{"figures/score_distribution.png"}
+
+As we can see, scores seem to follow a left-skewed normal distribution. The median score is 7.04 and the mean score is 7.3. Therefore, a score is below-average and therefore "bad" relative to other albums if it has a score less than 7. 
+\subsection{Evaluating Score Objectivity}
+
+\includegraphics[width = \linewidth]{"figures/underoverindexing.png"}
+
+\subsection{Distribution by Genre}
+
+\includegraphics[width = \linewidth]{"figures/score_dist_by_genre.png"}
 
 \section{The Contrarian Index - Pitchfork Scores of Popular Music}
 \includegraphics[width = \linewidth]{"figures/contrarian_index.png"}
 \subsection{Trends Post Conde-Nast Acquisition}
 \subsubsection{Further Analysis}
 
-\section{A Third Analysis: Perhaps Some Natrual Language Processing}
+\section{A Third Analysis: Perhaps Some Natural Language Processing}
 \subsection{Latent Dirichlet Allocation}
 
 \section{Conclusion}
