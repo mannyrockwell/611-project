@@ -43,18 +43,16 @@ contrarian_index <- ggplot(avg_top_album_scores, aes(x = release_year, y = avg_s
 #              aes(x = release_year, ymin=avg_score_top_album, ymax=avg_score_pitchfork), fill = "red", alpha=0.5) +
   xlim(1998, 2020) +
   labs(title = "Pitchfork Average Score Assigned to Popular Albums vs. All Albums", 
-       x = "Release Year", y ="Average Score") 
+       x = "Release Year", y ="Average Score") + 
+  theme_bw() +
+  theme(legend.position = "none")
   
-
 
 top_albums %>% 
   inner_join(pitchfork, by = "key") %>% 
   filter(release_year == 2000) %>%
   select(artist, album, score, release_year)
 
-
-
-  
   
 contrarian_index2 <- ggplot(avg_top_album_scores, aes(x=avg_score_pitchfork, xend=avg_score_top_album, 
                                  y=release_year, yend=release_year, color=favorable)) +
@@ -74,11 +72,11 @@ contrarian_index2 <- ggplot(avg_top_album_scores, aes(x=avg_score_pitchfork, xen
 if (!dir.exists("figures")){
   dir.create("figures")
   ggsave("figures/contrarian_index.png", 
-         width = 5, height = 5, 
+         width = 10, height = 5, 
          plot = contrarian_index)
 } else {
   ggsave("figures/contrarian_index.png", 
-         width = 5, height = 5, 
+         width = 10, height = 5, 
          plot = contrarian_index)
 }
 

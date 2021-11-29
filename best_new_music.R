@@ -28,7 +28,7 @@ histogram1 <- ggplot(pitchfork, aes(x = score)) +
 histogram1
 
 histogram2 <- ggplot(pitchfork, aes(x = score, 
-                      fill = factor(ifelse((score =="7.9"|score == "7.1"),"Underindexed", "Other")))) + 
+    fill = factor(ifelse((score =="7.9"|score == "7.1"|score=="9.9"),"Underindexed", "Other")))) + 
   geom_histogram(color="black", binwidth = 0.1) +
   scale_fill_manual(name = "score", values=c("grey80", "red")) +
   labs(title = "Pitchfork Score Distribution: Underindexed Scores", x = "Score", y ="Frequency") +
@@ -36,7 +36,7 @@ histogram2 <- ggplot(pitchfork, aes(x = score,
 histogram2
 
 histogram3 <- ggplot(pitchfork, aes(x = score, 
-                                    fill = factor(ifelse((score =="8"|score == "7"), "Overindexed", "Other")))) + 
+    fill = factor(ifelse((score =="8"|score == "7"|score == "10"), "Overindexed", "Other")))) + 
   geom_histogram(color="black", binwidth = 0.1) +
   scale_fill_manual(name = "score", values=c("grey80", "seagreen")) +
   labs(title = "Pitchfork Score Distribution: Overindexed Scores", x = "Score", y ="Frequency") +

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.18)  29 NOV 2021 12:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.18)  29 NOV 2021 15:11
 entering extended mode
 **./report.tex
 (report.tex
@@ -708,50 +708,60 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 134--135
 [][] 
  []
 
-<figures/underoverindexing.png, id=74, 722.7pt x 361.35pt>
+[1 <./figures/score_distribution.png>]
+<figures/underoverindexing.png, id=79, 722.7pt x 361.35pt>
 File: figures/underoverindexing.png Graphic file (type png)
 <use figures/underoverindexing.png>
-Package pdftex.def Info: figures/underoverindexing.png  used on input line 139.
+Package pdftex.def Info: figures/underoverindexing.png  used on input line 140.
 
 (pdftex.def)             Requested size: 426.79135pt x 213.39867pt.
-[1 <./figures/score_distribution.png>]
-<figures/score_dist_by_genre.png, id=80, 722.7pt x 361.35pt>
-File: figures/score_dist_by_genre.png Graphic file (type png)
-<use figures/score_dist_by_genre.png>
-Package pdftex.def Info: figures/score_dist_by_genre.png  used on input line 14
-3.
-(pdftex.def)             Requested size: 426.79135pt x 213.39867pt.
-<figures/contrarian_index.png, id=81, 361.35pt x 361.35pt>
-File: figures/contrarian_index.png Graphic file (type png)
-<use figures/contrarian_index.png>
-Package pdftex.def Info: figures/contrarian_index.png  used on input line 146.
-(pdftex.def)             Requested size: 426.79135pt x 426.79733pt.
- [2 <./figures/underoverindexing.png> <./figures/score_dist_by_genre.png>]
-<figures/contrarian_index_bar.png, id=89, 722.7pt x 361.35pt>
-File: figures/contrarian_index_bar.png Graphic file (type png)
-<use figures/contrarian_index_bar.png>
-Package pdftex.def Info: figures/contrarian_index_bar.png  used on input line 1
-48.
-(pdftex.def)             Requested size: 426.79135pt x 213.39867pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 148--149
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 140--141
 [][] 
  []
 
-[3 <./figures/contrarian_index.png>]
+<figures/score_dist_by_genre.png, id=80, 722.7pt x 361.35pt>
+File: figures/score_dist_by_genre.png Graphic file (type png)
+<use figures/score_dist_by_genre.png>
+Package pdftex.def Info: figures/score_dist_by_genre.png  used on input line 15
+0.
+(pdftex.def)             Requested size: 426.79135pt x 213.39867pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 150--151
+[][] 
+ []
+
+[2 <./figures/underoverindexing.png>]
+<figures/contrarian_index.png, id=87, 722.7pt x 361.35pt>
+File: figures/contrarian_index.png Graphic file (type png)
+<use figures/contrarian_index.png>
+Package pdftex.def Info: figures/contrarian_index.png  used on input line 155.
+(pdftex.def)             Requested size: 426.79135pt x 213.39867pt.
+<figures/contrarian_index_bar.png, id=88, 722.7pt x 361.35pt>
+File: figures/contrarian_index_bar.png Graphic file (type png)
+<use figures/contrarian_index_bar.png>
+Package pdftex.def Info: figures/contrarian_index_bar.png  used on input line 1
+57.
+(pdftex.def)             Requested size: 426.79135pt x 213.39867pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 157--158
+[][] 
+ []
+
+[3 <./figures/score_dist_by_genre.png> <./figures/contrarian_index.png>]
 <figures/word_distribution_plot.png, id=95, 867.24pt x 361.35pt>
 File: figures/word_distribution_plot.png Graphic file (type png)
 <use figures/word_distribution_plot.png>
 Package pdftex.def Info: figures/word_distribution_plot.png  used on input line
- 154.
+ 163.
 (pdftex.def)             Requested size: 426.79135pt x 177.82945pt.
 <figures/wordcloud.png, id=96, 1499.6025pt x 1322.69156pt>
 File: figures/wordcloud.png Graphic file (type png)
 <use figures/wordcloud.png>
-Package pdftex.def Info: figures/wordcloud.png  used on input line 156.
+Package pdftex.def Info: figures/wordcloud.png  used on input line 165.
 (pdftex.def)             Requested size: 426.79135pt x 376.42609pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 156--157
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 165--166
 [][] 
  []
 
@@ -769,7 +779,7 @@ Here is how much of TeX's memory you used:
  35119 multiletter control sequences out of 15000+600000
  419740 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,6n,77p,645b,329s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,6n,77p,787b,328s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti
 1200.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecbx1440.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -781,9 +791,9 @@ ts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\Emman\AppData\Local\MiKT
 eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Emman\AppData\Loca
 l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\Emman\AppDat
 a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk>
-Output written on report.pdf (8 pages, 875508 bytes).
+Output written on report.pdf (8 pages, 895323 bytes).
 PDF statistics:
- 451 PDF objects out of 1000 (max. 8388607)
+ 456 PDF objects out of 1000 (max. 8388607)
  21 named destinations out of 1000 (max. 500000)
  121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

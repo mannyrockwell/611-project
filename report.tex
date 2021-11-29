@@ -133,14 +133,23 @@ Perhaps the most interesting aspect of Pitchfork's reviews is the 101-point scal
 
 \includegraphics[width = \linewidth]{"figures/score_distribution.png"}
 
-As we can see, scores seem to follow a left-skewed normal distribution. The median score is 7.04 and the mean score is 7.3. Therefore, a score is below-average and therefore "bad" relative to other albums if it has a score less than 7. 
+As we can see, scores seem to follow a left-skewed normal distribution. The mean score is 7.04 and the median score is 7.3. Therefore, a score is below-average and therefore "bad" relative to other albums if it has a score less than 7. A significant difference from the implicit assumption that 5 is the mean score. If this were the aim of the publication, they should attempt to be less favorable in their reviews. 
 \subsection{Evaluating Score Objectivity}
+Next I'd like to look at some interesting trends within the histogram -- specifically certain scores that are underindexed and overindexed empirically compared to what we would assume the theoretical distribution. 
 
 \includegraphics[width = \linewidth]{"figures/underoverindexing.png"}
 
+The above figure highlights certain scores more or less prevalent in the empirical distribution than one would expect to find. Curiously, round numbers seem to be the most overindexed, with 7.0 and 8.0 both nearly matching the mode. On the other hand, scores like 7.1 and 7.9, while closer to the mode than 7.0 and 8.0, are significantly underrepresented in the data. Perhaps this reveals the more "human" aspect of this scoring convention. Since 7.1 and 7.9 seem like numbers that "lead" to 7.0 and 8.0 respectively, it appears that writers will unconsciously round down or round up when evaluating albums. 
+
 \subsection{Distribution by Genre}
 
+Finally, let's take a look at score distributions by genre. Pitchfork assigns multiple genres to albums -- often with many of the secondary genres being obscure. I simplified the issue by only taking the first genre listed on the website. This assumes that the first genre listed is the "primary" genre, which I believe is a fair assumption. 
+
+I first wanted to understand whether Pitchfork writes more favorable reviews for certain genres. One can measure this by calculating the average score by genres and seeing how much this differs from the average score of 7.04. Furthermore, do the distribution of scores for specific genres differ significantly from the overall distribution? The below figures attempt to answer these questions: 
+
 \includegraphics[width = \linewidth]{"figures/score_dist_by_genre.png"}
+
+Note that the first histogram represents all albums without a listed genre. Albums with no genre represented about 10\% of albums and the average rating on these albums was consistent with the overall average. Pitchfork apparently provides higher scores on average to Jazz, Global, Experimental, and Folk/Country albums. On the other hand, Pitchfork gives it's least favorable reviews (on average) to Pop/R\&B, Electronic, and Rap albums. However, the low scores on these albums appear to be due to a longer tail than the Jazz, Global, Experimental, and Folk/Country album distributions. Therefore, I would conclude that Pitchfork likely doesn't rate these albums lower on average, but rather has a lower threshold for what constitutes 
 
 \section{The Contrarian Index - Pitchfork Scores of Popular Music}
 \includegraphics[width = \linewidth]{"figures/contrarian_index.png"}
