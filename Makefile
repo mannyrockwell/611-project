@@ -35,7 +35,7 @@ figures/wordcloud.png: article_word_processing.R derived_data/pitchfork_clean.cs
 	Rscript article_word_processing.R
 
 report.pdf: tmp/tinytex_installed report.tex best_new_music.R contrarian_index.R aritcle_word_processing.R figures/contrarian_index.png figures/score_distribution.png figures/overunderindexing.png figures/score_dist_by_genre.png figures/contrarian_index_bar.png figures/word_distribution_plot.png figures/wordcloud.png
-	R -e "tinytex::pdflatex(\"report.tex\")
+	R -e "tinytex::pdflatex(\"report.tex\")"
 	pdflatex report.tex	
 
 tmp/tinytex_installed:
