@@ -1,0 +1,2 @@
+tinytex::install_tinytex()
+

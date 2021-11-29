@@ -16,14 +16,27 @@ derived_data/best_new_music.csv: best_new_music.R source_data/pitchfork_clean.cs
 figures/score_distribution.png: best_new_music.R derived_data/pitchfork_clean.csv
 	Rscript best_new_music.R
 
+figures/overunderindexing.png: best_new_music.R derived_data/pitchfork_clean.csv
+	Rscript best_new_music.R
+
+figures/score_dist_by_genre.png: best_new_music.R derived_data/pitchfork_clean.csv
+	Rscript best_new_music.R
+
 figures/contrarian_index.png: contrarian_index.R derived_data/pitchfork_clean.csv source_data/riaaAlbumCerts_1999-2019.csv
 	Rscript contrarian_index.R
 
-report.pdf: report.tex figures/contrarian_index.png figures/score_distribution.png 
-	pdflatex report.tex
+figures/contrarian_index_bar.png: contrarian_index.R derived_data/pitchfork_clean.csv source_data/riaaAlbumCerts_1999-2019.csv
+	Rscript contrarian_index.R
 
-report.pdf: /tmp/tinytex_installed
+figures/word_distribution_plot.png: article_word_processing.R derived_data/pitchfork_clean.csv
+	Rscript article_word_processing.R
+
+figures/wordcloud.png: article_word_processing.R derived_data/pitchfork_clean.csv
+	Rscript article_word_processing.R
+
+report.pdf: /tmp/tinytex_installed report.tex figures/contrarian_index.png figures/score_distribution.png 
 	R -e "tinytex::pdflatex(\"report.tex\")
+	pdflatex report.tex	
 
 tmp/tinytex_installed:
 	rm -f /tmp/tinytex_installed
