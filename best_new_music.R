@@ -23,27 +23,28 @@ min(pitchfork$release_year, na.rm = TRUE)
 histogram1 <- ggplot(pitchfork, aes(x = score)) + 
   geom_histogram(aes(y = ..density..), color="black", fill="white", binwidth = 0.1) + 
   geom_density(alpha=.2, fill="#FF6666") +
-  labs(title = "Pitchfork Score Distribution", x = "Score", y ="Frequency")
+  labs(title = "Pitchfork Score Distribution", x = "Score", y ="Frequency") +
+  theme_bw()
 histogram1
 
 histogram2 <- ggplot(pitchfork, aes(x = score, 
                       fill = factor(ifelse((score =="7.9"|score == "7.1"),"Underindexed", "Other")))) + 
   geom_histogram(color="black", binwidth = 0.1) +
   scale_fill_manual(name = "score", values=c("grey80", "red")) +
-  labs(title = "Pitchfork Score Distribution: Underindexed Scores", x = "Score", y ="Frequency")
+  labs(title = "Pitchfork Score Distribution: Underindexed Scores", x = "Score", y ="Frequency") +
+  theme_bw()
 histogram2
 
 histogram3 <- ggplot(pitchfork, aes(x = score, 
                                     fill = factor(ifelse((score =="8"|score == "7"), "Overindexed", "Other")))) + 
   geom_histogram(color="black", binwidth = 0.1) +
   scale_fill_manual(name = "score", values=c("grey80", "seagreen")) +
-  labs(title = "Pitchfork Score Distribution: Overindexed Scores", x = "Score", y ="Frequency")
+  labs(title = "Pitchfork Score Distribution: Overindexed Scores", x = "Score", y ="Frequency") +
+  theme_bw()
 histogram3
 
 histogram4 <- plot_grid(histogram2, histogram3)
-
-ggplot(pitchfork, aes(x = score, color = simplified_genre)) + 
-  geom_histogram(fill="white", binwidth = 0.1)
+histogram4
 
 pitchfork_grouped <- pitchfork %>% group_by(label) %>% summarize(score = mean(score))
 
@@ -54,6 +55,7 @@ histogram5 <- ggplot(pitchfork, aes(x = score)) +
   geom_vline(data = pitchfork_grouped, mapping =aes(xintercept = score),col='blue', linetype = "dashed") +
   facet_wrap(label ~ ., ncol = 5) +
   labs(title = "Pitchfork Score Distribution by Genre", x = "Score", y ="Frequency")
+histogram5
 
 hchart(density(pitchfork$score), type = "area", color = "#B71C1C", name = "Score")
 
