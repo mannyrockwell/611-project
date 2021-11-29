@@ -66,11 +66,17 @@ word_freq_nostop <- cbind(words = rownames(term_frequency_nostop),
                           term_frequency_nostop)
 names(word_freq_nostop) <- c("word","frequency")
 
-ggplot(data = word_freq[1:20,], aes(x = frequency, y = reorder(word, frequency))) +
-  geom_bar(stat = "identity", fill = "firebrick")
+freq_plot2 <- ggplot(data = word_freq[1:20,], aes(x = frequency, y = reorder(word, frequency))) +
+  geom_bar(stat = "identity", fill = "seagreen") +
+  labs(title = "Most Frequenct Words: Removing Common Music Words", x = "Frequency", y ="Word") +
+  theme_bw()
 
-ggplot(data = word_freq_nostop[1:20,], aes(x = frequency, y = reorder(word, frequency))) +
-  geom_bar(stat = "identity", fill = "firebrick")
+freq_plot1 <- ggplot(data = word_freq_nostop[1:20,], aes(x = frequency, y = reorder(word, frequency))) +
+  geom_bar(stat = "identity", fill = "firebrick") +
+  labs(title = "Most Frequenct Words: Removing Stop Words", x = "Frequency", y ="Word") +
+  theme_bw()
+
+freq_plot <- plot_grid(freq_plot1, freq_plot2)
 
 word_cloud2 <- wordcloud2(data=word_freq)
 word_cloud2
@@ -78,7 +84,16 @@ word_cloud2
 saveWidget(word_cloud2,"figures/wordcloud.html",selfcontained = F)
 webshot::webshot("figures/wordcloud.html","figures/wordcloud.png",vwidth = 1992, vheight = 1744, delay =10)
 
-
+if (!dir.exists("figures")){
+  dir.create("figures")
+  ggsave("figures/word_distribution_plot.png", 
+         width = 15, height = 5, 
+         plot = freq_plot)
+} else {
+  ggsave("figures/word_distribution_plot.png", 
+         width = 12, height = 5, 
+         plot = freq_plot)
+}
 
 # colfunc <- colorRampPalette(c("black", "red"))
 # color_pal <- colfunc(50)

@@ -43,7 +43,7 @@ histogram3 <- ggplot(pitchfork, aes(x = score,
   theme_bw()
 histogram3
 
-histogram4 <- plot_grid(histogram2, histogram3)
+histogram4 <- plot_grid(histogram2, histogram3, ncol = 1)
 histogram4
 
 pitchfork_grouped <- pitchfork %>% group_by(label) %>% summarize(score = mean(score))
@@ -54,6 +54,7 @@ histogram5 <- ggplot(pitchfork, aes(x = score)) +
   geom_vline(aes(xintercept = mean(score)),col='red', linetype = "dashed")+
   geom_vline(data = pitchfork_grouped, mapping =aes(xintercept = score),col='blue', linetype = "dashed") +
   facet_wrap(label ~ ., ncol = 5) +
+  theme_bw() +
   labs(title = "Pitchfork Score Distribution by Genre", x = "Score", y ="Frequency")
 histogram5
 
@@ -96,11 +97,11 @@ if (!dir.exists("figures")){
 if (!dir.exists("figures")){
   dir.create("figures")
   ggsave("figures/underoverindexing.png", 
-         width = 20, height = 5, 
+         width = 10, height = 5, 
          plot = histogram4)
 } else {
   ggsave("figures/underoverindexing.png", 
-         width = 20, height = 5, 
+         width = 10, height = 5, 
          plot = histogram4)
 }
 

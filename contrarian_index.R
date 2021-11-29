@@ -53,19 +53,10 @@ top_albums %>%
   select(artist, album, score, release_year)
 
 
-if (!dir.exists("figures")){
-  dir.create("figures")
-  ggsave("figures/contrarian_index.png", 
-         width = 5, height = 5, 
-         plot = contrarian_index)
-} else {
-  ggsave("figures/contrarian_index.png", 
-         width = 5, height = 5, 
-         plot = contrarian_index)
-}
+
   
   
-ggplot(avg_top_album_scores, aes(x=avg_score_pitchfork, xend=avg_score_top_album, 
+contrarian_index2 <- ggplot(avg_top_album_scores, aes(x=avg_score_pitchfork, xend=avg_score_top_album, 
                                  y=release_year, yend=release_year, color=favorable)) +
   theme_bw() +
   geom_segment(size = 6) + 
@@ -80,5 +71,25 @@ ggplot(avg_top_album_scores, aes(x=avg_score_pitchfork, xend=avg_score_top_album
                  size=4) + 
   scale_y_continuous(breaks = seq(1999, 2018, by = 1),1)
   
-  
+if (!dir.exists("figures")){
+  dir.create("figures")
+  ggsave("figures/contrarian_index.png", 
+         width = 5, height = 5, 
+         plot = contrarian_index)
+} else {
+  ggsave("figures/contrarian_index.png", 
+         width = 5, height = 5, 
+         plot = contrarian_index)
+}
+
+if (!dir.exists("figures")){
+  dir.create("figures")
+  ggsave("figures/contrarian_index_bar.png", 
+         width = 10, height = 5, 
+         plot = contrarian_index2)
+} else {
+  ggsave("figures/contrarian_index_bar.png", 
+         width = 10, height = 5, 
+         plot = contrarian_index2)
+}
   
