@@ -39,6 +39,7 @@ contrarian_index <- ggplot(avg_top_album_scores, aes(x = release_year, y = avg_s
   geom_point(size = 2) + 
   geom_line(aes(x = release_year, y = avg_score_pitchfork, color = "red"), size = 1) +
   geom_point(aes(x = release_year, y = avg_score_pitchfork, color = "red")) +
+  geom_vline(aes(xintercept = 2015), col='blue', linetype = "dashed", size = 1) +
 #  geom_ribbon(data = avg_top_album_scores[avg_top_album_scores$avg_score_top_album >= avg_top_album_scores$avg_score_pitchfork,], 
 #              aes(x = release_year, ymin=avg_score_top_album, ymax=avg_score_pitchfork), fill = "red", alpha=0.5) +
   xlim(1998, 2020) +
