@@ -1,10 +1,13 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {section}{\numberline {2}Score Distributions}{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Evaluating Score Objectivity}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Distribution by Genre}{2}{subsection.2.2}%
-\contentsline {section}{\numberline {3}The Contrarian Index - Pitchfork Scores of Popular Music}{3}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Trends Post Conde-Nast Acquisition}{4}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Further Analysis}{4}{subsubsection.3.1.1}%
-\contentsline {section}{\numberline {4}A Third Analysis: Perhaps Some Natural Language Processing}{4}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Latent Dirichlet Allocation}{5}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Conclusion}{5}{section.5}%
+\contentsline {subsection}{\numberline {2.1}Assessing Overall Distribution of Reviews}{1}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Evaluating Score Objectivity}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Distribution by Genre}{2}{subsection.2.3}%
+\contentsline {section}{\numberline {3}The Contrarian Index - Pitchfork vs. Popular Music}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Historical Background}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Formulating the Contrarian Index}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Album Review Text Mining}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Preliminary Data Wrangling}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Evaluating Word Frequency in Good and Bad Reviews}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Fun with Word Clouds}{6}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Conclusion}{6}{section.5}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.18)  29 NOV 2021 15:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.18)  1 DEC 2021 15:14
 entering extended mode
 **./report.tex
 (report.tex
@@ -667,7 +667,7 @@ LaTeX Info: Redefining \nameref on input line 100.
 \openout3 = `report.out'.
 
 \c@lstlisting=\count326
-<unc_seal.png, id=43, 1204.5pt x 1204.5pt>
+<unc_seal.png, id=55, 1204.5pt x 1204.5pt>
 File: unc_seal.png Graphic file (type png)
 <use unc_seal.png>
 Package pdftex.def Info: unc_seal.png  used on input line 104.
@@ -697,103 +697,99 @@ l.108 	\newpage
                 [2
 
 ]
-<figures/score_distribution.png, id=73, 722.7pt x 361.35pt>
+<figures/score_distribution.png, id=88, 722.7pt x 361.35pt>
 File: figures/score_distribution.png Graphic file (type png)
 <use figures/score_distribution.png>
-Package pdftex.def Info: figures/score_distribution.png  used on input line 134
+Package pdftex.def Info: figures/score_distribution.png  used on input line 135
 .
-(pdftex.def)             Requested size: 426.79135pt x 213.39867pt.
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 134--135
-[][] 
- []
-
-[1 <./figures/score_distribution.png>]
-<figures/underoverindexing.png, id=79, 722.7pt x 361.35pt>
+(pdftex.def)             Requested size: 405.45047pt x 202.72404pt.
+ [1 <./figures/score_distribution.png>]
+<figures/underoverindexing.png, id=95, 722.7pt x 361.35pt>
 File: figures/underoverindexing.png Graphic file (type png)
 <use figures/underoverindexing.png>
-Package pdftex.def Info: figures/underoverindexing.png  used on input line 140.
+Package pdftex.def Info: figures/underoverindexing.png  used on input line 141.
 
 (pdftex.def)             Requested size: 426.79135pt x 213.39867pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 140--141
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 141--142
 [][] 
  []
 
-<figures/score_dist_by_genre.png, id=80, 722.7pt x 361.35pt>
+<figures/score_dist_by_genre.png, id=96, 722.7pt x 361.35pt>
 File: figures/score_dist_by_genre.png Graphic file (type png)
 <use figures/score_dist_by_genre.png>
 Package pdftex.def Info: figures/score_dist_by_genre.png  used on input line 15
-0.
-(pdftex.def)             Requested size: 426.79135pt x 213.39867pt.
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 150--151
-[][] 
- []
-
+1.
+(pdftex.def)             Requested size: 405.45047pt x 202.72404pt.
 [2 <./figures/underoverindexing.png>]
-<figures/contrarian_index.png, id=87, 722.7pt x 361.35pt>
+<figures/contrarian_index.png, id=102, 722.7pt x 361.35pt>
 File: figures/contrarian_index.png Graphic file (type png)
 <use figures/contrarian_index.png>
-Package pdftex.def Info: figures/contrarian_index.png  used on input line 155.
-(pdftex.def)             Requested size: 426.79135pt x 213.39867pt.
-<figures/contrarian_index_bar.png, id=88, 722.7pt x 361.35pt>
+Package pdftex.def Info: figures/contrarian_index.png  used on input line 162.
+(pdftex.def)             Requested size: 405.45047pt x 202.72404pt.
+ [3 <./figures/score_dist_by_genre.png>]
+<figures/contrarian_index_bar.png, id=108, 722.7pt x 361.35pt>
 File: figures/contrarian_index_bar.png Graphic file (type png)
 <use figures/contrarian_index_bar.png>
 Package pdftex.def Info: figures/contrarian_index_bar.png  used on input line 1
-57.
+68.
 (pdftex.def)             Requested size: 426.79135pt x 213.39867pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 157--158
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 168--169
 [][] 
  []
 
-[3 <./figures/score_dist_by_genre.png> <./figures/contrarian_index.png>]
-<figures/word_distribution_plot.png, id=95, 867.24pt x 361.35pt>
+[4 <./figures/contrarian_index.png> <./figures/contrarian_index_bar.png>]
+<figures/word_distribution_plot.png, id=113, 867.24pt x 505.89pt>
 File: figures/word_distribution_plot.png Graphic file (type png)
 <use figures/word_distribution_plot.png>
 Package pdftex.def Info: figures/word_distribution_plot.png  used on input line
- 163.
-(pdftex.def)             Requested size: 426.79135pt x 177.82945pt.
-<figures/wordcloud.png, id=96, 1499.6025pt x 1322.69156pt>
+ 181.
+(pdftex.def)             Requested size: 405.45047pt x 236.5178pt.
+
+[5 <./figures/word_distribution_plot.png>]
+<figures/word_comparison.png, id=120, 722.7pt x 505.89pt>
+File: figures/word_comparison.png Graphic file (type png)
+<use figures/word_comparison.png>
+Package pdftex.def Info: figures/word_comparison.png  used on input line 187.
+(pdftex.def)             Requested size: 405.45047pt x 283.81364pt.
+<figures/wordcloud.png, id=122, 1279.78125pt x 988.44281pt>
 File: figures/wordcloud.png Graphic file (type png)
 <use figures/wordcloud.png>
-Package pdftex.def Info: figures/wordcloud.png  used on input line 165.
-(pdftex.def)             Requested size: 426.79135pt x 376.42609pt.
+Package pdftex.def Info: figures/wordcloud.png  used on input line 198.
+(pdftex.def)             Requested size: 426.79135pt x 329.62592pt.
+ [6 <./figures/word_comparison.png>]
+<figures/wordcloud_bad.png, id=128, 1279.78125pt x 988.44281pt>
+File: figures/wordcloud_bad.png Graphic file (type png)
+<use figures/wordcloud_bad.png>
+Package pdftex.def Info: figures/wordcloud_bad.png  used on input line 201.
+(pdftex.def)             Requested size: 426.79135pt x 329.62592pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 165--166
-[][] 
- []
-
-[4 <./figures/contrarian_index_bar.png> <./figures/word_distribution_plot.png>]
-(report.bbl) [5 <./figures/wordcloud.png>] [6
-
-] (report.aux)
+[7 <./figures/wordcloud.png> <./figures/wordcloud_bad.png>] (report.aux)
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: A728F74E079492138E731A8B93492080;1994.
+(rerunfilecheck)             Checksum: 836E1C1D8EF9B7FC6D190946614CD83D;2545.
  ) 
 Here is how much of TeX's memory you used:
- 17538 strings out of 478927
- 279493 string characters out of 2852535
- 883111 words of memory out of 3000000
- 35119 multiletter control sequences out of 15000+600000
- 419740 words of font info for 66 fonts, out of 8000000 for 9000
+ 17551 strings out of 478927
+ 279905 string characters out of 2852535
+ 884111 words of memory out of 3000000
+ 35132 multiletter control sequences out of 15000+600000
+ 419056 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,6n,77p,787b,328s stack positions out of 5000i,500n,10000p,200000b,80000s
- <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti
-1200.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecbx1440.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecrm1200.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecbx1200.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\Emman\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Emman\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\Emman\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk>
-Output written on report.pdf (8 pages, 895323 bytes).
+ 67i,6n,77p,811b,407s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx
+1440.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecrm1200.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecbx1200.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecbx1728.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\Emman\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Emman\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\Emman\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk>
+Output written on report.pdf (9 pages, 1619233 bytes).
 PDF statistics:
- 456 PDF objects out of 1000 (max. 8388607)
- 21 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 460 PDF objects out of 1000 (max. 8388607)
+ 23 named destinations out of 1000 (max. 500000)
+ 155 words of extra memory for PDF output out of 10000 (max. 10000000)
 

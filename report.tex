@@ -129,9 +129,10 @@ To analyze Pitchfork's reviews, I used a dataset from components.one that scrape
 
 
 \section{Score Distributions}
+\subsection{Assessing Overall Distribution of Reviews}
 Perhaps the most interesting aspect of Pitchfork's reviews is the 101-point scale along which each album is evaluated. While this scale attempts to achieve a semblance of objectivity in reviews, very little is known about the methodology used when scores are assigned. Can we expect the average score to be a 5.0? What distribution of scores should we expect? How rare are very high and very low scores? Pitchfork doesn't disclose any of this information, so we're left to analyze the data ourselves to understand what the distribution of scores look like. Figure 1 shows the general distribution of the scores.
 
-\includegraphics[width = \linewidth]{"figures/score_distribution.png"}
+\includegraphics[width = 0.95\linewidth]{"figures/score_distribution.png"}
 
 As we can see, scores seem to follow a left-skewed normal distribution. The mean score is 7.04 and the median score is 7.3. Therefore, a score is below-average and therefore "bad" relative to other albums if it has a score less than 7. A significant difference from the implicit assumption that 5 is the mean score. If this were the aim of the publication, they should attempt to be less favorable in their reviews. 
 \subsection{Evaluating Score Objectivity}
@@ -147,173 +148,68 @@ Finally, let's take a look at score distributions by genre. Pitchfork assigns mu
 
 I first wanted to understand whether Pitchfork writes more favorable reviews for certain genres. One can measure this by calculating the average score by genres and seeing how much this differs from the average score of 7.04. Furthermore, do the distribution of scores for specific genres differ significantly from the overall distribution? The below figures attempt to answer these questions: 
 
-\includegraphics[width = \linewidth]{"figures/score_dist_by_genre.png"}
+\includegraphics[width = 0.95\linewidth]{"figures/score_dist_by_genre.png"}
 
-Note that the first histogram represents all albums without a listed genre. Albums with no genre represented about 10\% of albums and the average rating on these albums was consistent with the overall average. Pitchfork apparently provides higher scores on average to Jazz, Global, Experimental, and Folk/Country albums. On the other hand, Pitchfork gives it's least favorable reviews (on average) to Pop/R\&B, Electronic, and Rap albums. However, the low scores on these albums appear to be due to a longer tail than the Jazz, Global, Experimental, and Folk/Country album distributions. Therefore, I would conclude that Pitchfork likely doesn't rate these albums lower on average, but rather has a lower threshold for what constitutes 
+Note that the first histogram represents all albums without a listed genre. Albums with no genre represented about 10\% of albums and the average rating on these albums was consistent with the overall average. Pitchfork apparently provides higher scores on average to Jazz, Global, Experimental, and Folk/Country albums. On the other hand, Pitchfork gives it's least favorable reviews (on average) to Pop/R\&B, Electronic, and Rap albums. However, the low scores on these albums appear to be due to a longer tail than the Jazz, Global, Experimental, and Folk/Country album distributions. Therefore, I would conclude that Pitchfork likely doesn't rate these albums lower on average, but rather has a lower threshold for what constitutes being worthy of review.
 
-\section{The Contrarian Index - Pitchfork Scores of Popular Music}
-\includegraphics[width = \linewidth]{"figures/contrarian_index.png"}
+\section{The Contrarian Index - Pitchfork vs. Popular Music}
+\subsection{Historical Background}
+In its early years, Pitchfork build a reputation of having somewhat contrarian opinions regarding popular music. During this time, Pitchfork grew its brand by not guaranteeing that most successful or most well-known albums receive the highest ratings -- distinguishing Pitchfork from other music and culture review publications. However, in 2015 Pitchfork was acquired by mega-conglomerate publisher Conde Nast, becoming a facet of the music industry it had formerly opposed. I'd like to see whether this historical reputation is backed by the data.
+
+\subsection{Formulating the Contrarian Index}
+There are many approaches that could be taken in formulating an index of contrarian reviews. However, I think the most straightforward approach would be to look at the disparity between the average Pitchfork reviews, and the average review of popular albums. 
+
+\includegraphics[width = 0.95\linewidth]{"figures/contrarian_index.png"}
+
+The average score of pitchfork reviews by year is shown in red. The average Pitchfork review of albums who met certain Record Industry Association of America (RIAA) certifications (i.e. gold, diamond, platinum, and multi-platinum albums) is displayed in black. The blue line represents the year of the Conde Nast acquisition.
+
+We can see that Pitchfork began by giving very favorable reviews to the top albums, but between 2002 and 2014 settled into giving below average reviews to the most successful albums. However, in 2015 -- the same year Pitchfork was acquire by Conde Nast -- it began giving much more favorable reviews to popular albums. The only true enigma in the graph is low scores given to the most popular albums in recent years. Here is another view of the same information:
 
 \includegraphics[width = \linewidth]{"figures/contrarian_index_bar.png"}
 
-\subsection{Trends Post Conde-Nast Acquisition}
-\subsubsection{Further Analysis}
+Going down the graph, we can see the degree to which the ratings of the most popular albums surpassed or fell short of the average rating by year. It's important to note that popular albums only constituted about 2\% of all Pitchfork reviews from year to year. Therefore, more variation should be expected. However, the decree to which these albums consistently under-perform compared to the average album at least partially confirms the suspicion that Pitchfork is biased against popular albums. 
 
-\section{A Third Analysis: Perhaps Some Natural Language Processing}
-\includegraphics[width = \linewidth]{"figures/word_distribution_plot.png"}
+\section{Album Review Text Mining}
+\subsection{Preliminary Data Wrangling}
+Perhaps the most interesting but unwieldy aspect of this dataset is it's content of reviews themselves. Each row contains the entire text (sometimes 10,000+ words) of the associated review of the album, presenting a very interesting opportunity in text mining and natural language processing. However, performing operations on 20,000+ reviews requires a good deal of processing power. Furthermore, looking at the average review might not be exceedingly interesting.
 
-\includegraphics[width = \linewidth]{"figures/wordcloud.png"}
+Luckily Pitchfork assigns it's favorite albums with its "best new music" label -- allowing me to subset the albums receiving the highest praise. I performed some text bagging and tallied the frequency of words within these reviews. While I did use a dictionary of common English stop words, I noticed that some of the most popular words were very standard words you would see to describe music, like "music," "album," "songs," "sound," and "record." These words aren't very informative of qualities unique to the best music, so I created an additional dictionary to remove these uninteresting words. 
 
-\subsection{Latent Dirichlet Allocation}
+\subsection{Evaluating Word Frequency in Good and Bad Reviews}
+To understand the qualities of the most favorable reviews, I thought it might be useful to contrast the content of the worst reviews. While Pitchfork doesn't have a category for bad reviews, I can achieve something similar by taking all scores below a certain threshold. I chose 4.7 as my cutoff because it produced a similar number of observations as the good reviews, and I want to be comparing balanced data. Below are the top 20 words for good reviews when removing stopwords, the top 20 words for good review removing additional music-related words, and the top 20 words for bad review removing additional music-related words.
+
+\includegraphics[width = 0.95\linewidth]{"figures/word_distribution_plot.png"}
+
+The leftmost graph demonstrated how common music-related words are. Turning to the two rightmost graphs, it appears that the top words are somewhat similar. In both lists, "new" and "time" are the most commonly words in reviews. I suppose this isn't surprising since most albums are new at the time the review is written. 
+
+However, making comparisons across these charts isn't easy. We can make it a bit easier to compare the relative ranks of works within good reviews and bad reviews with a different visualization:
+
+\includegraphics[width = 0.95\linewidth]{"figures/word_comparison.png"}
+
+Here we can see that the word with the most significant difference in rank between the two category of review is "love." This is relatively straightforward (honestly I thought the disparity between words like "love" would be even greater). 
+
+\subsection{Fun with Word Clouds}
+Finally, I concluded my analysis of the content of reviews by creating word Clouds for both the favorable reviews and unfavorable reviews. Web versions of these word Clouds may be found withing the "figures" folder of my github repository, but a snapshot of their results is also provided on the next page. 
 
 \section{Conclusion}
-%
-%\section{Section 1}
-%\subsection{Subsection 1}
-%\subsubsection{Subsubsection 1}
-%You won't find subsubsubsections but you can also add a paragraph
-%\paragraph{Paragraph} 
-%
-%if you really need another layer.
-%
-%But you can also modify the document if you really need more subsections.
-%
-%\section{Examples} \label{sec:section2}
-%
-%This is how you reference labels. Section \ref{sec:section2} explains how to reference labels. Section \ref{sec:citing} explains how to cite papers.
-%
-%\subsection{Citing}\label{sec:citing}
-%This is one citation \cite{Mabuchi2012}. This is another citation \cite{HAN201687}. You can aggregate citations \cite{Mabuchi2012, HAN201687}.
-%
-%\subsection{Theorem}
-%\begin{theorem} \label{theo:theorem1}
-%	This is one way to define a theorem
-%\end{theorem}
-%
-%You can also reference the Theorem \ref{theo:theorem1}.
-%
-%\subsection{Coloring text for revision}
-%\textcolor{red}{You can color your text in case you want to add comments during the review of your comp I}.
-%
-%\subsection{Adding images}
-%This is how you reference an image Figure \ref{fig:example_1}.
-%
-%\begin{figure}[ht]
-%	\centering
-%%	\includegraphics[width = 0.3\linewidth]{figures/Thesis_Defence.png}
-%	\caption{You can cite the source in the caption \cite{barbour1}.}
-%	\label{fig:example_1}
-%\end{figure}
-%
-%This is how you reference a sub-image Figure \ref{fig:a}.
-%
-%\subsection{Adding equations}
-%
-%Equation \ref{eq:euler} is Euler's favorite equation. Maybe you want to cite as IEEE style? \eqref{eq:euler} shows Euler's favorite equation.
-%
-%\begin{equation}
-%	\label{eq:euler}
-%	e^{i\pi} + 1 = 0
-%\end{equation}
-%
-%\subsection{Adding tables}
-%
-%Table \ref{tab:table1} is a simple table.
-%\begin{table}[H]
-%	\caption{This is a simple table}
-%	\label{tab:table1}
-%	\centering
-%	\begin{tabular}{lccc}
-%		\toprule
-%		Class       &   Feature 1   &   Feature 2   &   Feature 3   \\
-%		\midrule
-%		Class 1     &   a   &   a   &   a   \\
-%		Class 2     &   a   &   a   &   a   \\
-%		\bottomrule
-%	\end{tabular}
-%\end{table}
-%
-%
-%Table \ref{tab:table2} contains more advanced components.
-%\begin{table}[H]
-%	\caption{This is a comprehensive table}
-%	\label{tab:table2}
-%	\centering
-%	\begin{tabular}{lcccc}
-%		\toprule
-%		& \multicolumn{2}{c}{CNN} & \multicolumn{2}{c}{CNN+LSTM} \\
-%		\cmidrule(r){2-3} \cmidrule(r){4-5}
-%		Difficulty     & Model 1 &  Model 2 & Model 1 & Model 2\\
-%		\midrule
-%		Easiest   & \Centerstack{ calm \\ angry \\ neutral}  &   \Centerstack{ angry \\ disgust \\ surprised}   &   \Centerstack{ calm \\ angry \\ neutral} & \Centerstack{ angry \\ fearful \\ calm} \\
-%		\midrule
-%		Hardest & \Centerstack{ sad \\ surprised \\ happy}   & \Centerstack{ neutral \\ sad \\ happy/fearful} & \Centerstack{ sad \\ surprised \\ happy/disgust}   &   \Centerstack{ neutral/sad \\ happy \\ disgust } \\
-%		\bottomrule
-%	\end{tabular}
-%\end{table}
-%
-%
-%\subsection{Lists}
-%This is an unordered list
-%\begin{itemize}
-%	\item Item 1
-%	\item Item 2
-%\end{itemize}
-%
-%This is an ordered nested list
-%\begin{enumerate}
-%	\item Item 1
-%	\begin{enumerate}
-%		\item Item one
-%		\item Item two
-%		\item Item three
-%	\end{enumerate}
-%	\item Item 2
-%\end{enumerate}
-%
-%\subsection{Algorithms}
-%
-%Algorithm \ref{alg:algorithm1} shows how to write pseudocode.
-%
-%\begin{algorithm}
-%	\KwResult{Write here the result }
-%	initialization\;
-%	\While{While condition}{
-%		instructions\;
-%		\eIf{condition}{
-%			instructions1\;
-%			instructions2\;
-%		}{
-%			instructions3\;
-%		}
-%	}
-%	\caption{Example of algorithm}
-%	\label{alg:algorithm1}
-%\end{algorithm}
-%
-%You can also import code, if you really need to show the exact code that you used. For example, Algorithm \ref{listing:research} shows how to do research.
+This analysis certainly isn't exhaustive. With more time, I'd love to continue analysis of this data to explore even more granular aspects of the content of these reviews, engage in predictive modeling efforts, and continue updating the dataset to contain the most recent reviews. Regardless, thank you for reading my paper. Any future updates can be found in my \href{https://github.com/mannyrockwell/bios-611-project}{my github repository}. 
+
+\begin{center}
+\includegraphics[width = \linewidth]{"figures/wordcloud.png"}
+\end{center}
+\begin{center}
+\includegraphics[width = \linewidth]{"figures/wordcloud_bad.png"}
+\end{center}
 
 
 
-%	\input{sections/conclusion}
-	
-	
-	
-	
-	%If you came here because you want your references in a new page, uncomment the following line
-	
-	%\clearpage % If you want the references in a separate page
-	\bibliography{bibliography}
-	
-	\clearpage % If you want the appendix in a separate page
-	\appendix
-%	\input{sections/appendix}
-
-\begin{thebibliography}{}
-\bibitem{ref1}
-Rockwell, E. M., \& Rockwell, E. M. (2021). \emph{This is a citiation I made up} (Vol. 4). Prestigious Journal.
 
 
-\end{thebibliography}
+
+
+
+
+
+
 	
 \end{document}
