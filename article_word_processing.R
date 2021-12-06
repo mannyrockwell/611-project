@@ -103,23 +103,24 @@ freq_plot
 top_x <- 20
 
 word_freq_good_rank <- word_freq %>% mutate(rank = row_number(desc(frequency))) %>%
-  mutate(position = -1) %>%  filter(rank <= top_x)
+  mutate(position = -1) %>%  filter(rank <= top_x) %>% mutate(good_rank = rank)
 word_freq_bad_rank <- word_freq_bad %>% mutate(rank = row_number(desc(frequency))) %>%
-  mutate(position = 1) %>%  filter(rank <= top_x)
+  mutate(position = 1) %>%  filter(rank <= top_x) %>% mutate(bad_rank = rank)
 
 line_data_good <- word_freq_good_rank %>% left_join(word_freq_bad_rank, by="word")
 line_data_bad <- word_freq_bad_rank %>% left_join(word_freq_good_rank, by="word")
 
-line_data <- rbind(line_data_good, line_data_bad) %>% filter(rank)distinct_at(vars(word)) %>%
-  mutate(good_rank=replace_na(rank.x,top_x+1),
-         bad_rank=replace_na(rank.y,top_x+1))
+line_data <- rbind(line_data_good, line_data_bad) %>%
+  mutate(good_rank=replace_na(good_rank,top_x+1),
+         bad_rank=replace_na(bad_rank,top_x+1))
+line_data <- line_data[!duplicated(line_data$word),]
 
 word_freq_ranks <- union_all(word_freq_good_rank, word_freq_bad_rank)
 
 word_comparison <- ggplot(word_freq_ranks) +
   geom_rect(aes(xmin=position-0.5, xmax=position+0.5, ymin=rank-0.45, ymax=rank+0.45, fill=rank), show.legend = FALSE) +
   geom_label(aes(x=position, y=rank, label=word), color = "black") +
-  geom_segment(data=line_data[0:20,],aes(x=-0.5,xend=0.5, y=good_rank, yend=bad_rank, color = rank.x), show.legend = FALSE, size =1) +
+  geom_segment(data=line_data,aes(x=-0.5,xend=0.5, y=good_rank, yend=bad_rank, color = rank.x), show.legend = FALSE, size =1) +
   scale_y_reverse(breaks = 1:top_x) +
   scale_x_continuous(breaks=c(-1,1), labels=c("Good","Bad")) +
   scale_color_viridis(name = 'distortion', option = "C", direction = 1) +

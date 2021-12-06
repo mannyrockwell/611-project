@@ -8,10 +8,8 @@ clean:
 	rm -rf report.pdf
 
 derived_data/pitchfork_clean.csv: source_data/pitchfork.csv
+	mkdir -p derived_data
 	Rscript clean_data.R
-
-derived_data/best_new_music.csv: best_new_music.R source_data/pitchfork_clean.csv
-	Rscript best_new_music.R
 
 figures/score_distribution.png: best_new_music.R derived_data/pitchfork_clean.csv
 	Rscript best_new_music.R
@@ -31,10 +29,16 @@ figures/contrarian_index_bar.png: contrarian_index.R derived_data/pitchfork_clea
 figures/word_distribution_plot.png: article_word_processing.R derived_data/pitchfork_clean.csv
 	Rscript article_word_processing.R
 
+figures/word_comparison.png: article_word_processing.R derived_data/pitchfork_clean.csv
+	Rscript article_word_processing.R
+
 figures/wordcloud.png: article_word_processing.R derived_data/pitchfork_clean.csv
 	Rscript article_word_processing.R
 
-report.pdf: tmp/tinytex_installed report.tex best_new_music.R contrarian_index.R aritcle_word_processing.R figures/contrarian_index.png figures/score_distribution.png figures/overunderindexing.png figures/score_dist_by_genre.png figures/contrarian_index_bar.png figures/word_distribution_plot.png figures/wordcloud.png
+figures/wordcloud_bad.png: article_word_processing.R derived_data/pitchfork_clean.csv
+	Rscript article_word_processing.R
+
+report.pdf: tmp/tinytex_installed report.tex best_new_music.R contrarian_index.R aritcle_word_processing.R figures/contrarian_index.png figures/score_distribution.png figures/overunderindexing.png figures/score_dist_by_genre.png figures/contrarian_index_bar.png figures/word_distribution_plot.png figures/word_comparison.png figures/wordcloud.png figures/wordcloud_bad.png
 	R -e "tinytex::pdflatex(\"report.tex\")"
 	pdflatex report.tex	
 
