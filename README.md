@@ -8,17 +8,27 @@ The intention of this project was to better understand the meaning of the scores
 ## How to build the docker image:
 First, clone or pull the most recent git repository using something similar to the code below:
 
-`git pull https://github.com/mannyrockwell/bios-611-project`
+```
+git pull https://github.com/mannyrockwell/bios-611-project
+```
 
-Next, build the docker image:
+Next, build the docker image by running thise code from the directory containing the cloned repository:
 
-`docker build . -t 611project
-docker run -v $PWD:/home/rstudio -p 8787:8787 -e PASSWORD=pw -t 611project`
+```
+docker build . -t 611project
+docker run -v $PWD:/home/rstudio -p 8787:8787 -e PASSWORD=pw -t 611project
+```
 
-Finally, open rstudio through docker and run the following code to generate the report. Individual figures and files can also be compiles using similar syntax.
-5.  Forward to port 8787 using PowerShell
-ssh erock38@[IPADDRESS] -L 8787:localhost:8787
+## How to generate the report:
+Open Rstudio through docker and run the following code in the Rstudio to generate the report. 
 
-6. Open rocker/rstudio to connect through browser: localhost:8787
-Username: rstudio
-Password: pw
+```
+make report.pdf
+```
+
+Individual figures and files can also be compiles using similar syntax.
+
+## Shiny app:
+
+I also built a simple [Shiny app](https://emmanuelrockwell.shinyapps.io/pitchfork_app_611/) so users can easily interact with the dataset and explore how the distribution of Pitchfork scores has changed over time. 
+
