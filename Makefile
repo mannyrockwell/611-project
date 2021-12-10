@@ -38,6 +38,9 @@ figures/wordcloud.png: article_word_processing.R derived_data/pitchfork_clean.cs
 figures/wordcloud_bad.png: article_word_processing.R derived_data/pitchfork_clean.csv
 	Rscript article_word_processing.R
 
+shiny_app: derived_data/pitchfork_clean.csv
+	Rscript shiny_app.R
+
 report.pdf: tmp/tinytex_installed report.tex best_new_music.R contrarian_index.R aritcle_word_processing.R figures/contrarian_index.png figures/score_distribution.png figures/overunderindexing.png figures/score_dist_by_genre.png figures/contrarian_index_bar.png figures/word_distribution_plot.png figures/word_comparison.png figures/wordcloud.png figures/wordcloud_bad.png
 	R -e "tinytex::pdflatex(\"report.tex\")"
 	pdflatex report.tex	
